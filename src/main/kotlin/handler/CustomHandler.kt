@@ -10,15 +10,15 @@ class CustomHandler : HttpHandler {
         val queryStr: String? = exchange.requestURI.query
 
         val queryArr = queryStr?.split("&")
-        var ret = "{"
+        var ret = "{\n"
         queryArr?.forEachIndexed {idx,query->
             val query = query.split("=")
-            ret += "\"${query[0]}\":\"${query[1]}\""
+            ret += "\t\"${query[0]}\":\"${query[1]}\""
             if(queryArr.size>1 && queryArr.size-1 >idx){
-                ret += " , "
+                ret += ", \n"
             }
         }
-        ret += "}"
+        ret += "\n}"
         exchange.responseHeaders.set("Content-Type", "application/json")
         exchange.sendResponseHeaders(200, ret.length.toLong())
         val ost = exchange.responseBody
