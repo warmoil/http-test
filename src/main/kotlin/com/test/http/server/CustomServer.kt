@@ -1,7 +1,7 @@
-package server
+package com.test.http.server
 
 import com.sun.net.httpserver.HttpServer
-import handler.CustomHandler
+import com.test.http.handler.CustomHandler
 import java.net.InetSocketAddress
 
 class CustomServer(

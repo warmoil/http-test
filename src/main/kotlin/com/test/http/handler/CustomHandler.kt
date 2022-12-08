@@ -1,4 +1,4 @@
-package handler
+package com.test.http.handler
 
 import com.sun.net.httpserver.HttpExchange
 import com.sun.net.httpserver.HttpHandler
