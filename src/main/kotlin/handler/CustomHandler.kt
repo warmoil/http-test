@@ -7,13 +7,16 @@ class CustomHandler : HttpHandler {
     override fun handle(exchange: HttpExchange?) {
         if (exchange == null || exchange.requestBody == null) return
 
-        val queryStr = exchange.requestURI.query
+        val queryStr: String? = exchange.requestURI.query
 
-        val queryArr = queryStr.split("&")
+        val queryArr = queryStr?.split("&")
         var ret = "{"
-        queryArr.forEach {
-            val query = it.split("=")
+        queryArr?.forEachIndexed {idx,query->
+            val query = query.split("=")
             ret += "\"${query[0]}\":\"${query[1]}\""
+            if(queryArr.size>1 && queryArr.size-1 >idx){
+                ret += " , "
+            }
         }
         ret += "}"
         exchange.responseHeaders.set("Content-Type", "application/json")
