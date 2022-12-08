@@ -26,5 +26,4 @@ class CustomHandler : HttpHandler {
         ost.write(ret.toByteArray())
         ost.close()
     }
-
 }
