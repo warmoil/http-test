@@ -21,7 +21,6 @@ class CustomHandler : HttpHandler {
         ret += "}"
         exchange.responseHeaders.set("Content-Type", "application/json")
         exchange.sendResponseHeaders(200, ret.length.toLong())
-
         val ost = exchange.responseBody
         ost.write(ret.toByteArray())
         ost.close()
