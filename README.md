@@ -1,4 +1,9 @@
 # http-test
 
 
-이거슨 angryOil의 커밋입니다 !
+gradle build후 
+  docker build -t buildtest .  
+  docker run -p 8088:8080 buildtest   
+  
+  
+  
